@@ -124,7 +124,6 @@ jobs:
         run: npm ci
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          #NODE_AUTH_TOKEN: ${{secrets.USER_PAT}}
       - name: Obtain Generator Version
         run: |
           echo "GENERATOR_VERSION=$(npm show '${{ fromJson(steps.static.outputs.result)._static.generator.name }}' --json | jq -r '.version')" >> "$GITHUB_ENV"
@@ -137,6 +136,8 @@ jobs:
               | sed 's/git+https:\/\/github.com\///' \
               | sed 's/.git//' \
           )" >> "$GITHUB_ENV"
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}  
       # Clone the generator repository and checkout the version specified in the static.json file.
       - name: Cloning Generator
         uses: actions/checkout@v4
