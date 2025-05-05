@@ -6,6 +6,6 @@
     "author": "",
     "license": "",
     "dependencies": {
-      "project8/p8-yale-npm-pkg-test": "1.0.0"
+      "@project8/p8-yale-npm-pkg-test": "1.0.0"
     }
   }
