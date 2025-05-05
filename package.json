@@ -1,5 +1,6 @@
 {
     "name": "@project8/p8-yale-npm-import-test",
+    "repository": "github:project8/p8-yale-npm-import-test",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
