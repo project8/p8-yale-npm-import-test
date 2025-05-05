@@ -127,6 +127,8 @@ jobs:
       - name: Obtain Generator Version
         run: |
           echo "GENERATOR_VERSION=$(npm show '${{ fromJson(steps.static.outputs.result)._static.generator.name }}' --json | jq -r '.version')" >> "$GITHUB_ENV"
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
       # Obtrains the repository URL from the generator's npm package and converts it to `<owner>/<repo>` format for actions/checkout.
       - name: Obtain Generator Repository
         run: |
@@ -145,6 +147,8 @@ jobs:
           repository: ${{inputs.generator_repository || env.GENERATOR_REPOSITORY}}
           ref: ${{inputs.generator_ref || env.GENERATOR_VERSION}}
           path: '.static--generator'
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
       # Ensure the static.json file is the user-defined file and not the generator's file.
       # Uses `jq` and an environment variable to avoid issues with unescaped quotes in JSON values.
       - name: Replacing static.json in Generator
