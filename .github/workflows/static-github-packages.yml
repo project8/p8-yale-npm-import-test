@@ -15,6 +15,7 @@ on:
         description: 'The branch, tag, or SHA to checkout. If not provided, the version will be inferred from the ecosystem file and used as the ref.'
         type: string
         required: false
+  push:
 
       
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
