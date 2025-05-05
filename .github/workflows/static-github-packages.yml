@@ -117,6 +117,7 @@ jobs:
         with:
           cache: npm
           node-version: lts/iron
+          registry-url: https://npm.pkg.github.com/
       - name: Printing .npmrc
         run: cat ./.npmrc
       - name: Install Dependencies
