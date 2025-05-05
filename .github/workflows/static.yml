@@ -22,3 +22,5 @@ concurrency:
 jobs:
   static:
     uses: from-static/actions/.github/workflows/static.yml@v2
+    env:
+      NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
